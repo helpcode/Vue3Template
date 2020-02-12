@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+      "baseUrl": ".",
+      "paths": {
+        "@/*": ["src/application"],
+        "@core/*": ["src/core"],
+        "@assets/*": ["src/application/assets"]
+      },
+      "target": "ES6",
+      "module": "commonjs",
+      "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*"],
+    "exclude": ["node_modules"]
+}
