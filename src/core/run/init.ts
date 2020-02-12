@@ -44,6 +44,7 @@ export class Init {
    */
   private InitVueRouter(): void {
     this.router = new VueRouter(config.RouterConfigUrl);
+    // 全局路由守卫
     this.router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | void) => void) => {
       document.title = to.meta.title
       next()
