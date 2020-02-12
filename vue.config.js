@@ -57,7 +57,7 @@ module.exports = {
   },
   configureWebpack: (config) => {
     // 设置程序核心入口
-    config.entry.app = './src/core/run/index.ts';
+    config.entry.app = './src/core/run/index.run.ts';
 
     if (isProduction) {
 

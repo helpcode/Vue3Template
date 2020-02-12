@@ -1,21 +1,27 @@
 import Vue, { VueConstructor , PluginObject} from 'vue';
 import App from '@/App.vue';
 import VueRouter, { RawLocation, Route } from 'vue-router';
-import { config } from '../config'
-import { Inject } from '../decorators/Ioc';
+import { config } from '../config/index.config'
+import { Inject } from '../decorators/Ioc.decorators';
+import { DirectiveList } from '../directive/index.directive';
+import directiveModel from '../utils/directive.utils';
 
 /**
  * 项目初始化文件
  */
 export class Init {
 
+
   @Inject()
   private config!: config;
+
+  @Inject()
+  public directiveList!: DirectiveList;
   
   private initVuePlugsArray = config.VuePlugs;
   private initOtherPlugsArray = config.NotVuePlugs;
   private initVueMixin = config.VueMixin;
-  private ininVueDirective = config.VueDirective;
+  // private ininVueDirective = config.VueDirective;
 
   protected router!: VueRouter;
   protected Vues: VueConstructor<Vue> = Vue;
@@ -23,6 +29,7 @@ export class Init {
 
 
   constructor() {
+    this.directiveList;
     this.Vues.config.productionTip = false;
     this.initPlugs();
   }
@@ -31,7 +38,7 @@ export class Init {
    * 初始化Vue和非Vue插件，Vue Mixin，vue directive
    */
   private initPlugs(): void {
-    this.ininVueDirective.forEach(v => this.Vues.directive(v['n'], v['f']))
+    (directiveModel.DirectiveContainer as []).forEach(v => this.Vues.directive(v['n'], v['f']))
     this.initVueMixin.forEach(v => this.Vues.mixin(v))
     this.initOtherPlugsArray.forEach(v => this.Vues.prototype[v['n']] = new (v['f'])());
     this.initVuePlugsArray.forEach(v => this.Vues.use(v));

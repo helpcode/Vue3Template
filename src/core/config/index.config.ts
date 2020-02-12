@@ -4,23 +4,19 @@ import { PluginObject, ComponentOptions, DirectiveOptions } from 'vue';
 /**
  * 需要被挂载全局方法，其他全局性东西一样
  */
-import { Utils } from '../utils';
+import { Utils } from '../utils/index.utils';
 
 /**
  * 保存 router 对象
  */
 import VueCompositionApi from '@vue/composition-api';
-import { Injectable } from '../decorators/Ioc';
+import { Injectable } from '../decorators/Ioc.decorators';
 
 /**
  * mixin
  */
-import SaveRouterObject from '../mixin/routerMixin';
+import SaveRouterObject from '../mixin/router.mixin';
 
-/**
- * directive
- */
-import { index } from '../directive/index';
 
 @Injectable()
 export class config {
@@ -51,15 +47,6 @@ export class config {
     VueRouter,
     VueCompositionApi
   ];
-
-  /**
-   * Vue 自定义指令，主要在 src/directive/ 文件夹
-   * n: 指令名
-   * f: 指令的处理函数
-   */
-  public static VueDirective: Array<{ n: string, f: DirectiveOptions }> = [
-    { n: 'index', f: index() }
-  ]
 
   /**
    * Vue Mixin 混入，主要在 src/mixin/ 文件夹

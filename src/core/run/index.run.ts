@@ -1,5 +1,5 @@
-import { Init } from './init';
-import { config } from '../config';
+import { Init } from './init.run';
+import { config } from '../config/index.config';
 import { CreateElement } from 'vue';
 
 /**
@@ -7,6 +7,7 @@ import { CreateElement } from 'vue';
  * 从Init类中抽离出来的原因是方便后期如果要做Vue多端项目
  */
 class Index extends Init {
+
   constructor() {
     super();
     new this.Vues({

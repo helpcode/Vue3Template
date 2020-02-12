@@ -1,7 +1,7 @@
-import { HomeService } from "../HomeService";
-import { Axios } from "../../dao";
-import { Inject } from '../../decorators/Ioc';
-import { config } from "../../config";
+import { HomeService } from "../Home.service";
+import { Axios } from "../../dao/index.dao";
+import { Inject } from '../../decorators/Ioc.decorators';
+import { config } from "../../config/index.config";
 
 class HomeServiceImpl implements HomeService {
 

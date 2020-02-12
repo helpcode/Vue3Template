@@ -1,6 +1,6 @@
-import { Utils } from '../utils';
+import { Utils } from '../utils/index.utils';
 import axios, { AxiosInstance } from 'axios';
-import { Injectable } from '../decorators/Ioc';
+import { Injectable } from '../decorators/Ioc.decorators';
 
 @Injectable()
 export class Axios {

@@ -2,7 +2,7 @@
   .home
     img(alt='Vue logo', src='~@public/img/logo.png')
     h2(v-index='200') {{title}}
-    p 请打开控制台查看更多
+    p(v-test) 请打开控制台查看更多
     v-hellowold
     button(@click='loadData') 点击请求数据
     ul
@@ -15,9 +15,9 @@
   import { toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
   //@ts-ignore
-  import HomeServiceImpl from '@core/service/impl/HomeServiceImpl'
+  import HomeServiceImpl from '@core/service/impl/home.service.impl'
   //@ts-ignore
-  import { useRouter } from '@core/hooks/useRouter'
+  import { useRouter } from '@core/hooks/router.hooks'
   import HelloWorldComponent from '../components/HelloWorld.vue'
 
   export default createComponent({

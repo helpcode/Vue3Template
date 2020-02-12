@@ -1,4 +1,4 @@
-import { config } from '../config';
+import { config } from '../config/index.config';
 
 /**
  * utils 类中，方法名如果加上 static 只是给脚手架内部做配置用于启动，
