@@ -54,6 +54,8 @@ export class config {
 
   /**
    * Vue 自定义指令，主要在 src/directive/ 文件夹
+   * n: 指令名
+   * f: 指令的处理函数
    */
   public static VueDirective: Array<{ n: string, f: DirectiveOptions }> = [
     { n: 'index', f: index() }
@@ -69,6 +71,8 @@ export class config {
   /**
    * 非Vue的全局性插件，Vue3中无法访问组件 this
    * 所以建议vue组件中这般访问：(ctx.root as any).$utils
+   * n: 要在Vue组件中使用的名字
+   * f: 主要处理逻辑
    */
   public static NotVuePlugs: Array<{ 
     n: string, f: { new(): void } 
