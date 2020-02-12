@@ -1,6 +1,5 @@
 import { Init } from './init';
 import { config } from '../config';
-import { Injectable, Inject } from '../decorators/Ioc';
 import { CreateElement } from 'vue';
 
 /**
