@@ -62,6 +62,6 @@ npm run build
 
 额....好像就没有了，简单很。可以自己按照上面思路来看代码，代码里面都有注释。
 
-**对了，记得看`src/application/page/Home.vue`里面的代码，还要就是配置文件: `vue.config.js`也记得看下！**
+**对了，记得看`src/application/page/Home.vue`里面的代码，还就是配置文件: `vue.config.js`也记得看下！**
 
 ## 后面考虑会写一个Vue3的学习文档，这样方便大家快速掌握！
