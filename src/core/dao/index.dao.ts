@@ -71,7 +71,7 @@ export class Axios {
    */
   public async ResponseInterceptor(): Promise<any> {
     axios.interceptors.response.use(response => {
-        return response.data;
+        return response;
     }, (error: Error) => {
       return Promise.reject(error)
     })

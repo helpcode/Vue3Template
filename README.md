@@ -53,6 +53,16 @@ npm run build
         └── utils                   公共方法
 ```
 
+## 注解
+
+- 1: `@Directive()`：主要在文件 `directive/index.directive.ts`的类`DirectiveList`中使用，加在类`DirectiveList`的方法上，让方法成为Vue的自定义指令，方法名就是指令名。例如方法`public index() {}`，那么Vue组件中指令则为：`v-index`。
+
+- 2: `@Injectable()、@Inject()`：注解`@Injectable()`为收集依赖，而`@Inject()`加在类的属性上，会把`@Injectable()`的类注入到属性上。
+
+- 3: `@GET、@POST、@PUT、@DELETE`：主要在文件 `service/impl` 中使用，加在类的方法上，注解均接受一个参数，参数为请求地址。具体使用方法看 `service/impl/home.service.impl.ts` 文件。
+
+- 4: `@Mixin()`：主要在文件 `mixin/index.mixin.ts` 中使用，加在类的方法上，会让类的方法自动成为Vue的mixin。具体使用方法看 `mixin/index.mixin.ts` 文件。
+
 ## 项目运行思路
 
 - 1: `vue.config.js` 中 `config.entry.app = './src/core/run/index.ts';` 设置了程序的入口文件，程序从这启动！

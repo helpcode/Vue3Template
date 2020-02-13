@@ -1,3 +1,3 @@
 export interface HomeService {
-  index(data: object): Promise<Object>;
+  index(data: object): void;
 }
