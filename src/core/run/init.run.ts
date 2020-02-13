@@ -9,14 +9,10 @@ import directiveModel from '../utils/directive.utils';
 import { MixinList } from '../mixin/index.mixin';
 import MixinModel from '../utils/mixin.utils';
 
-
-
-
 /**
  * 项目初始化文件
  */
 export class Init {
-
 
   @Inject()
   private config!: config;
@@ -33,7 +29,6 @@ export class Init {
   protected router!: VueRouter;
   protected Vues: VueConstructor<Vue> = Vue;
   public static AppComponent: VueConstructor = App;
-
 
   constructor() {
     this.directiveList;
@@ -75,5 +70,4 @@ export class Init {
       return routerPush.call(this, location).catch((error: Error) => error)
     };
   }
-
 }

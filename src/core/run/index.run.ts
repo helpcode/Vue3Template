@@ -18,5 +18,3 @@ class Index extends Init {
 }
 
 new Index();
-
-
