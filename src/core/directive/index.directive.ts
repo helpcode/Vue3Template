@@ -1,6 +1,6 @@
 import { VNodeDirective, VNode } from 'vue'
-import { Directive } from '../decorators/directive.decorators';
-import { Injectable } from '../decorators/Ioc.decorators';
+import { Directive, Injectable } from 'vue3decorators';
+
 /**
  * 自定义指令
  * 注意如果类的方法被加上了 @Directive() 注解

@@ -10,7 +10,7 @@ import { Utils } from '../utils/index.utils';
 /**
  * IOC
  */
-import { Injectable } from '../decorators/Ioc.decorators';
+import { Injectable } from 'vue3decorators';
 
 
 @Injectable()
@@ -42,21 +42,7 @@ export class config {
     VueRouter,
     VueCompositionApi
   ];
-
-  /**
-   * 非Vue的全局性插件，Vue3中无法访问组件 this
-   * 所以建议vue组件中这般访问：(ctx.root as any).$utils
-   * n: 要在Vue组件中使用的名字
-   * f: 主要处理逻辑
-   */
-  // public static NotVuePlugs: Array<{ 
-  //   n: string, f: { new(): void } 
-  // }> = [
-  //   { n: '$config', f: config },
-  //   { n: '$utils', f: Utils }
-  // ];
-
-
+  
   /**
    * Vue-router 配置
    */

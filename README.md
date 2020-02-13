@@ -1,4 +1,4 @@
-# Vue3Template
+# 1：Vue3Template
 
 使用Vue-cli3，并基于 Vue3.0 Composition-Api + TypeScript 改造搭建的基础项目骨架(符合我的使用习惯)，可以直接下载运行。
 
@@ -7,22 +7,22 @@
 - 1: Vue3.0 Composition-Api 访问地址：[https://github.com/vuejs/composition-api](https://github.com/vuejs/composition-api)
 - 2: TypeScript 中文网：[https://www.tslang.cn/docs/home.html](https://www.tslang.cn/docs/home.html)
 
-## 下载
+## 2：下载
 ```
 git clone https://github.com/helpcode/Vue3Template.git
 ```
 
-## 运行
+## 3：运行
 ```
 npm run serve
 ```
 
-## 打包构建-发布
+## 4：打包构建-发布
 ```
 npm run build
 ```
 
-## 项目结构
+## 5：项目结构
 
 项目的大致结构如下，具体更详细的请自行看源码！！！
 
@@ -53,169 +53,13 @@ npm run build
         └── utils                   公共方法
 ```
 
-## 已实现的注解
+## 6：已实现的注解
 
-### 1：@Directive()
+这里不做篇幅介绍了，已实现的注解被抽离出去作为了一个单独的`npm`包，可以使用`npm`进行安装然后使用，具体注解用法看下面链接：
 
-本注解主要在文件 `directive/index.directive.ts`的类`DirectiveList`中使用，加在类`DirectiveList`的方法上，让方法成为Vue的自定义指令，方法名就是指令名。例如方法`public index() {}`，那么Vue组件中指令则为：`v-index`。
+> vue3decorators 项目地址：[https://www.npmjs.com/package/vue3decorators](https://www.npmjs.com/package/vue3decorators)
 
-示例：
-
-```js
-# 文件：directive/index.directive.ts
-
-import { Directive } from '../decorators/directive.decorators';
-export class DirectiveList {
-    @Directive()
-    public index() {
-        return {
-            bind: (el: Element, binding: VNodeDirective, vnode: VNode) => {
-                // console.log(el)
-                // console.log(binding)
-                console.log("v-index 指令接收到的数值：", binding.value);
-                // console.log(vnode);
-            }
-        }
-    }
-}
-```
-Vue组件中使用：
-
-```pug
- h2(v-index='200') {{title}}
-```
-
-### 2：@Injectable()，@Inject() 依赖注入
-
-注解`@Injectable()`加在类，主要作用是收集依赖，而`@Inject()`加在类的属性上，会把`@Injectable()`的类注入到属性上。
-
-示例：
-
-```js
-import { Injectable, Inject } from './decorators/Ioc.decorators';
-
-@Injectable()
-class Demo1 {
-    public hello: string = "我是Demo1类"
-}
-
-class Demo2 {
-
-    @Inject()
-    public test!: Demo1;
-
-    public GetTest(): string {
-        returun this.test.hello  // 返回："我是Demo1类" 
-    }
-}
-```
-
-### 3：@GET、@POST、@PUT、@DELETE
-
-主要在文件 `service/impl` 中使用，加在类的方法上，所有注解都只接受一个参数，参数为请求的地址，地址主要在`/config/index.config.ts`中配置。
-
-示例：
-
-```js
-import { HomeService } from "../Home.service";
-import { GET, POST } from '../../decorators/request.decorators';
-import { config } from "../../config/index.config";
-
-class HomeServiceImpl implements HomeService {
-
-    // 注意打上@GET注解后，方法内部什么都不需要写，方法只需要接受页面组件传递过来的参数就行。
-    // get请求用 @GET注解，post请求用@POST注解，其他同理可得。
-    @GET(config.AjaxConfig.ApiList.index)
-    public async index(data: object) {}
-
-}
-```
-
-Vue组件中调用：
-
-```vue
-<template lang="pug">
- // .....
-</template>
-
-<script lang="ts">
-import HomeServiceImpl from '@core/service/impl/home.service.impl'
-export default createComponent({
-    setup(props: PropOptions, ctx: SetupContext) {
-        onMounted(async ()=> {
-            let data = await HomeServiceImpl.index({ id: 1,page: 1 });
-            console.log("ajax请求到的数据为：", data)
-        })
-    }
-})
-</script>
-
-<style lang="stylus" scoped>
-  // .....
-</style>
-```
-
-### 4：@Mixin()
-
-主要在文件 `mixin/index.mixin.ts` 中使用，加在类的方法上，会让类的方法自动成为Vue的全局mixin。
-
-示例：
-
-```js
-@Injectable()
-export class MixinList {
-    
-    @Mixin()
-    public Router() {
-        return {
-            beforeCreate: setRuntimeVM
-        }
-    }
-}
-```
-
-### 5：@GlobalMethod()
-
-`@GlobalMethod()`可以随意加在类的方法上，不过个人推荐加在`utils/`文件夹的类的方法上。类的方法一旦被加上这个注解那么这个方法将成为全局方法，可以在`Vue`组件中直接是使用，注意组件内调用的时候是：`$方法名()`，之所以加上`$`是为了防止和组件内方法名冲突！！
-
-示例：
-
-```js
-export class Utils {
-   /**
-   * 动态设置网页title
-   * @param title
-   */
-  @GlobalMethod()
-  public setTitle(title: string): void {
-    document.title = title;
-  }
-}
-```
-
-Vue组件中调用：
-
-```vue
-<template lang="pug">
- // .....
-</template>
-
-<script lang="ts">
-export default createComponent({
-    setup(props: PropOptions, ctx: SetupContext) {
-        onMounted(async ()=> {
-             console.log("全部方法：", (ctx.root as any).$setTitle("测试"));
-        })
-    }
-})
-</script>
-
-<style lang="stylus" scoped>
-  // .....
-</style>
-```
-
-## 项目运行思路
+## 7：项目运行思路
 
 - 1: `vue.config.js` 中 `config.entry.app = './src/core/run/index.ts';` 设置了程序的入口文件，程序从这启动！
 - 2: `class Index` 继承 父类 `Init`, 这里 `index.ts` 只负责做初始化`Vue`的工作，所有的Vue参数插件等具体装载都在`init.ts`中

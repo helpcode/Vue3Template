@@ -1,6 +1,6 @@
 import { Utils } from '../utils/index.utils';
 import axios, { AxiosInstance } from 'axios';
-import { Injectable } from '../decorators/Ioc.decorators';
+import { Injectable } from 'vue3decorators';
 
 @Injectable()
 export class Axios {

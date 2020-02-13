@@ -2,14 +2,12 @@ import Vue, { VueConstructor , PluginObject} from 'vue';
 import App from '@/App.vue';
 import VueRouter, { RawLocation, Route } from 'vue-router';
 import { config } from '../config/index.config'
-import { Inject } from '../decorators/Ioc.decorators';
+import { Inject, directiveModel, mixinModel, globalMethodModel } from 'vue3decorators';
 
+import { Axios } from '../dao/index.dao';
 import { DirectiveList } from '../directive/index.directive';
-import directiveModel from '../utils/directive.utils';
 import { MixinList } from '../mixin/index.mixin';
-import MixinModel from '../utils/mixin.utils';
 
-import GlobalMethodModel from '../utils/global.method.utils';
 
 /**
  * 项目初始化文件
@@ -24,6 +22,9 @@ export class Init {
 
   @Inject() 
   public mixinList!: MixinList;
+
+  @Inject()
+  public axios!: Axios;
   
   private initVuePlugsArray = config.VuePlugs;
 
@@ -34,6 +35,7 @@ export class Init {
   constructor() {
     this.directiveList;
     this.mixinList;
+    this.axios;
 
     this.Vues.config.productionTip = false;
     this.initPlugs();
@@ -44,8 +46,8 @@ export class Init {
    */
   private initPlugs(): void {
     (directiveModel.DirectiveContainer as []).forEach(v => this.Vues.directive(v['n'], v['f']));
-    (MixinModel.MixinContainer as []).forEach(v => this.Vues.mixin(v));
-    (GlobalMethodModel.GlobalMethod as []).forEach(v => this.Vues.prototype[v['n']] = v['f']);
+    (mixinModel.MixinContainer as []).forEach(v => this.Vues.mixin(v));
+    (globalMethodModel.GlobalMethod as []).forEach(v => this.Vues.prototype[v['n']] = v['f']);
     this.initVuePlugsArray.forEach(v => this.Vues.use(v));
     this.InitVueRouter();
   }

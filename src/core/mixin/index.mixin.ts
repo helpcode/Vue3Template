@@ -1,6 +1,5 @@
 import { setRuntimeVM } from '../utils/runtime.utils';
-import { Mixin } from '../decorators/mixin.decorators';
-import { Injectable } from '../decorators/Ioc.decorators';
+import { Mixin, Injectable } from 'vue3decorators';
 
 /**
  * 类的方法上如果加上注解 @Mixin()，那么该方法
