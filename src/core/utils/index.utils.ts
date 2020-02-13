@@ -1,5 +1,5 @@
 import { config } from '../config/index.config';
-
+import { GlobalMethod } from './../decorators/global.decorators';
 /**
  * utils 类中，方法名如果加上 static 只是给脚手架内部做配置用于启动，
  * 是不能再vue 组件中使用的！！！
@@ -34,6 +34,7 @@ export class Utils {
    * 动态设置网页title
    * @param title
    */
+  @GlobalMethod()
   public setTitle(title: string): void {
     document.title = title;
   }

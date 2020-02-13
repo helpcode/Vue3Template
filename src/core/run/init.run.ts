@@ -9,6 +9,8 @@ import directiveModel from '../utils/directive.utils';
 import { MixinList } from '../mixin/index.mixin';
 import MixinModel from '../utils/mixin.utils';
 
+import GlobalMethodModel from '../utils/global.method.utils';
+
 /**
  * 项目初始化文件
  */
@@ -24,7 +26,6 @@ export class Init {
   public mixinList!: MixinList;
   
   private initVuePlugsArray = config.VuePlugs;
-  private initOtherPlugsArray = config.NotVuePlugs;
 
   protected router!: VueRouter;
   protected Vues: VueConstructor<Vue> = Vue;
@@ -44,7 +45,7 @@ export class Init {
   private initPlugs(): void {
     (directiveModel.DirectiveContainer as []).forEach(v => this.Vues.directive(v['n'], v['f']));
     (MixinModel.MixinContainer as []).forEach(v => this.Vues.mixin(v));
-    this.initOtherPlugsArray.forEach(v => this.Vues.prototype[v['n']] = new (v['f'])());
+    (GlobalMethodModel.GlobalMethod as []).forEach(v => this.Vues.prototype[v['n']] = v['f']);
     this.initVuePlugsArray.forEach(v => this.Vues.use(v));
     this.InitVueRouter();
   }

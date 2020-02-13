@@ -49,12 +49,12 @@ export class config {
    * n: 要在Vue组件中使用的名字
    * f: 主要处理逻辑
    */
-  public static NotVuePlugs: Array<{ 
-    n: string, f: { new(): void } 
-  }> = [
-    { n: '$config', f: config },
-    { n: '$utils', f: Utils }
-  ];
+  // public static NotVuePlugs: Array<{ 
+  //   n: string, f: { new(): void } 
+  // }> = [
+  //   { n: '$config', f: config },
+  //   { n: '$utils', f: Utils }
+  // ];
 
 
   /**

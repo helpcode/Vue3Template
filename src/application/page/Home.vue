@@ -44,7 +44,7 @@
         // 2: 使用vue3 SetupContext 对象访问全局自定义配置和方法
         // 还有路由对象
         console.log("全部配置：", (ctx.root as any).$config);
-        console.log("全部方法：", (ctx.root as any).$utils);
+        console.log("全部方法：", (ctx.root as any).$setTitle("测试"));
         // 路由导航
         // ctx.root.$router.push('about')
         
