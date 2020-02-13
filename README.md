@@ -53,7 +53,7 @@ npm run build
         └── utils                   公共方法
 ```
 
-## 注解
+## 已实现的注解
 
 - 1: `@Directive()`：主要在文件 `directive/index.directive.ts`的类`DirectiveList`中使用，加在类`DirectiveList`的方法上，让方法成为Vue的自定义指令，方法名就是指令名。例如方法`public index() {}`，那么Vue组件中指令则为：`v-index`。
 
@@ -61,7 +61,7 @@ npm run build
 
 - 3: `@GET、@POST、@PUT、@DELETE`：主要在文件 `service/impl` 中使用，加在类的方法上，注解均接受一个参数，参数为请求地址。具体使用方法看 `service/impl/home.service.impl.ts` 文件。
 
-- 4: `@Mixin()`：主要在文件 `mixin/index.mixin.ts` 中使用，加在类的方法上，会让类的方法自动成为Vue的mixin。具体使用方法看 `mixin/index.mixin.ts` 文件。
+- 4: `@Mixin()`：主要在文件 `mixin/index.mixin.ts` 中使用，加在类的方法上，会让类的方法自动成为Vue的全局mixin。具体使用方法看 `mixin/index.mixin.ts` 文件。
 
 ## 项目运行思路
 
