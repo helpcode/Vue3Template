@@ -42,7 +42,7 @@ npm run build
     └── core                    
         ├── config                  站点的核心配置文件，必看代码
         ├── dao                     Axios的封装
-        ├── decorators              自定义的一些注解(已有Ioc，后期再继续添加)
+        ├── decorators              【已被抽离项目作为单独包，具体看：[Vue3Template](https://github.com/helpcode/Vue3Template)】自定义的一些注解
         ├── directive               Vue自定义指令
         ├── hooks                   Vue3 hooks
         ├── mixin                   Vue自定义mixin
