@@ -1,21 +1,14 @@
 import VueRouter, { RouterOptions } from 'vue-router';
-import { PluginObject, ComponentOptions, DirectiveOptions } from 'vue';
+import { PluginObject } from 'vue';
 
 /**
  * 需要被挂载全局方法，其他全局性东西一样
  */
 import { Utils } from '../utils/index.utils';
 
-/**
- * 保存 router 对象
- */
+
 import VueCompositionApi from '@vue/composition-api';
 import { Injectable } from '../decorators/Ioc.decorators';
-
-/**
- * mixin
- */
-import SaveRouterObject from '../mixin/router.mixin';
 
 
 @Injectable()
@@ -46,13 +39,6 @@ export class config {
   = [
     VueRouter,
     VueCompositionApi
-  ];
-
-  /**
-   * Vue Mixin 混入，主要在 src/mixin/ 文件夹
-   */
-  public static VueMixin: ComponentOptions<Vue>[] = [
-    SaveRouterObject
   ];
 
   /**

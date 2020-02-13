@@ -1,6 +1,3 @@
-import { DirectiveOptions } from 'vue';
-import { Injectable } from '../decorators/Ioc.decorators';
-
 class DirectiveModel {
     private _DirectiveContainer: Array<object> = [];
 
