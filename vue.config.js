@@ -30,7 +30,7 @@ module.exports = {
       warnings: true,
       errors: true,
     },
-    // 可以删除，为脚手架提供一个用于测试的接口
+    // before 这块代码都可以删除，仅仅为脚手架提供一个用于测试的接口
     before: function(app, server) {
       app.get('/test', function(req, res) {
         res.json({ 
@@ -38,6 +38,16 @@ module.exports = {
           result: [
             { id: 1, name: '张三' },
             { id: 2, name: '李四' }
+          ]
+        });
+      });
+
+      app.post('/haha', function(req, res) {
+        res.json({ 
+          status: 200,
+          result: [
+            { id: 1, name: '哈哈1' },
+            { id: 2, name: '哈哈2' }
           ]
         });
       });
@@ -75,7 +85,8 @@ module.exports = {
        * 部署阶段 代码压缩
        */
       config.plugins.push(
-        // 生产环境自动删除console
+        // 生产环境自动删除 console，如果需要显示 console 请修改
+        // drop_console 为 false
         new UglifyJsPlugin({
           uglifyOptions: {
             compress: {

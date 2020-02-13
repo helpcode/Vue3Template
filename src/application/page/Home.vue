@@ -33,7 +33,7 @@
         list: ref([])
       });
 
-      onMounted(()=> {
+      onMounted(async ()=> {
         // 1: 使用 mixin 混入
         // 在beforeCreate时候保存vue对象，然后使用 hooks 读出来使用
         console.log("路由 route 对象: ", route.value);
@@ -46,12 +46,19 @@
         (ctx.root as any).$setTitle("测试")
         // 路由导航
         // ctx.root.$router.push('about')
+
+        let PostData = await HomeServiceImpl.HaHa({ 
+          name: 'bmy', 
+          age: [18,19,17] 
+        });
+        console.log("测试POST请求，数据为：", PostData)
         
       })
 
       const loadData = async () => {
         // ajax 请求，可以使用Hooks，也可以用传统的 prototype 全局挂载方式（注意用ctx替代this）
         let data = await HomeServiceImpl.index({ id: 1,page: 1 });
+        console.log("GET请求到的数据：", data)
         state.list = data.result
       }
 

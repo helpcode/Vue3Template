@@ -18,7 +18,7 @@ export class Axios {
    */
   public async get(params: { url: string, data: Object }): Promise<Object> {
     try {
-      return await axios.get(params.url, {params: params.data})
+      return await axios.get(params.url, {params: params.data});
     } catch (e) {
       return e.message
     }
