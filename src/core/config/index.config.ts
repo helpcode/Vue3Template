@@ -1,13 +1,15 @@
-import VueRouter, { RouterOptions } from 'vue-router';
 import { PluginObject } from 'vue';
+import VueRouter, { RouterOptions } from 'vue-router';
+import VueCompositionApi from '@vue/composition-api';
 
 /**
  * 需要被挂载全局方法，其他全局性东西一样
  */
 import { Utils } from '../utils/index.utils';
 
-
-import VueCompositionApi from '@vue/composition-api';
+/**
+ * IOC
+ */
 import { Injectable } from '../decorators/Ioc.decorators';
 
 
