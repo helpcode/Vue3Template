@@ -118,15 +118,10 @@ class Demo2 {
 
 ```js
 import { HomeService } from "../Home.service";
-import { Axios } from "../../dao/index.dao";
-import { Inject } from '../../decorators/Ioc.decorators';
 import { GET, POST } from '../../decorators/request.decorators';
 import { config } from "../../config/index.config";
 
 class HomeServiceImpl implements HomeService {
-
-    @Inject()
-    public axios!: Axios;
 
     // 注意打上@GET注解后，方法内部什么都不需要写，方法只需要接受页面组件传递过来的参数就行。
     // get请求用 @GET注解，post请求用@POST注解，其他同理可得。
