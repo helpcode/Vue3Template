@@ -7,22 +7,19 @@
 - 1: Vue3.0 Composition-Api 访问地址：[https://github.com/vuejs/composition-api](https://github.com/vuejs/composition-api)
 - 2: TypeScript 中文网：[https://www.tslang.cn/docs/home.html](https://www.tslang.cn/docs/home.html)
 
-## 2：下载
+## 运行
 ```
+# 1：下载
 git clone https://github.com/helpcode/Vue3Template.git
-```
 
-## 3：运行
-```
+# 2：运行
 npm run serve
-```
 
-## 4：打包构建-发布
-```
+# 3：打包构建-发布
 npm run build
 ```
 
-## 5：项目结构
+## 2：项目结构
 
 项目的大致结构如下，具体更详细的请自行看源码！！！
 
@@ -53,7 +50,7 @@ npm run build
         └── utils                   公共方法
 ```
 
-## 6：已实现的注解
+## 3：已实现的注解
 
 这里不做篇幅介绍了，已实现的注解被抽离出去作为了一个单独的`npm`包，可以使用`npm`进行安装然后使用，具体注解用法看下面链接：
 
@@ -69,5 +66,7 @@ npm run build
 额....好像就没有了，简单很。可以自己按照上面思路来看代码，代码里面都有注释。
 
 **对了，记得看`src/application/page/Home.vue`里面的代码，还就是配置文件: `vue.config.js`也记得看下！**
+
+## 4：后记
 
 ## 后面考虑会写一个Vue3的学习文档，这样方便大家快速掌握！
