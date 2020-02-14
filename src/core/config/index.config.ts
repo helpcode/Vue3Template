@@ -29,8 +29,7 @@ export class config {
   /**
    * Vue插件
    */
-  public static VuePlugs: PluginObject<never>[] 
-  = [
+  public static VuePlugs: PluginObject<never>[] = [
     VueRouter,
     VueCompositionApi
   ];

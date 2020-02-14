@@ -3,7 +3,7 @@
     img(alt='Vue logo', src='~@public/img/logo.png')
     h2(v-index='200') {{title}}
     p(v-test) 请打开控制台查看更多
-    v-hellowold
+    v-hellowold(title="父向子传递数据")
     button(@click='loadData') 点击请求数据
     ul
       li(v-for="(item,index) in list" :key="index") 
@@ -15,9 +15,9 @@
   import { toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
   //@ts-ignore
-  import HomeServiceImpl from '@core/service/impl/home.service.impl'
-  //@ts-ignore
   import { useRouter } from '@core/hooks/router.hooks'
+  //@ts-ignore
+  import HomeServiceImpl from "@impl/home.service.impl";
   import HelloWorldComponent from '../components/HelloWorld.vue'
 
   export default createComponent({
@@ -47,20 +47,20 @@
         // 路由导航
         // ctx.root.$router.push('about')
 
-        let PostData = await HomeServiceImpl.HaHa({ 
+        let PostData = await HomeServiceImpl.HaHa({
           name: 'bmy', 
           age: [18,19,17] 
         });
         console.log("测试POST请求，数据为：", PostData)
         
-      })
+      });
 
       const loadData = async () => {
         // ajax 请求，可以使用Hooks，也可以用传统的 prototype 全局挂载方式（注意用ctx替代this）
         let data = await HomeServiceImpl.index({ id: 1,page: 1 });
         console.log("GET请求到的数据：", data)
         state.list = data.result
-      }
+      };
 
       return {
         ...toRefs(state), loadData

@@ -1,9 +1,13 @@
-import Vue, { VueConstructor , PluginObject} from 'vue';
 import App from '@/App.vue';
+import Vue, { VueConstructor , PluginObject} from 'vue';
 import VueRouter, { RawLocation, Route } from 'vue-router';
-import { config } from '../config/index.config'
 import { Inject, directiveModel, mixinModel, globalMethodModel } from 'vue3decorators';
 
+/**
+ * 这些类只需要被@Inject()实例化然后注入到属性即可
+ * 为了让注解生效
+ */
+import { config } from '../config/index.config'
 import { Axios } from '../dao/index.dao';
 import { DirectiveList } from '../directive/index.directive';
 import { MixinList } from '../mixin/index.mixin';
@@ -20,23 +24,18 @@ export class Init {
   @Inject()
   public directiveList!: DirectiveList;
 
-  @Inject() 
+  @Inject()
   public mixinList!: MixinList;
 
   @Inject()
   public axios!: Axios;
   
   private initVuePlugsArray = config.VuePlugs;
-
   protected router!: VueRouter;
   protected Vues: VueConstructor<Vue> = Vue;
   public static AppComponent: VueConstructor = App;
 
   constructor() {
-    this.directiveList;
-    this.mixinList;
-    this.axios;
-
     this.Vues.config.productionTip = false;
     this.initPlugs();
   }
@@ -58,11 +57,13 @@ export class Init {
    */
   private InitVueRouter(): void {
     this.router = new VueRouter(config.RouterConfigUrl);
+
     // 全局路由守卫
     this.router.beforeEach((to: Route, from: Route, next: (to?: RawLocation | false | void) => void) => {
-      document.title = to.meta.title
+      document.title = to.meta.title;
       next()
-    })
+    });
+
     // 重写路由Push
     const routerPush: (location: RawLocation) 
           => Promise<Route> 

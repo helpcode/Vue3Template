@@ -1,5 +1,5 @@
 import { HomeService } from "../Home.service";
-import { GET, POST } from 'vue3decorators';
+import { GET, POST, GlobalMethod } from 'vue3decorators';
 
 class HomeServiceImpl implements HomeService {
 
@@ -13,4 +13,4 @@ class HomeServiceImpl implements HomeService {
 
 }
 
-export default new HomeServiceImpl()
+export default new HomeServiceImpl();

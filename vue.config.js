@@ -3,6 +3,24 @@ const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const CompressionPlugin = require('compression-webpack-plugin')
 const path = require('path');
+
+// 公共性配置，可以自定义修改
+const PublicConfig = {
+  // 入口
+  entry: './src/core/run/index.run.ts',
+  // 别名
+  alias: {
+    public: 'public',
+    core: 'src/core',
+    impl: 'src/core/service/impl',
+    root: 'src/application',
+    assets: 'src/application/assets',
+    styl: 'src/application/assets/stylus/components',
+    globalStyl: './src/application/assets/stylus/imports.styl'
+  }
+}
+
+// vue项目打包上线后会使用这里的css，js，减少打包后的项目体积。
 const cdn = {
   css: [],
   js: [
@@ -67,7 +85,7 @@ module.exports = {
   },
   configureWebpack: (config) => {
     // 设置程序核心入口
-    config.entry.app = './src/core/run/index.run.ts';
+    config.entry.app = PublicConfig.entry
 
     if (isProduction) {
 
@@ -144,7 +162,6 @@ module.exports = {
       .loader('pug-html-loader')
       .end();
 
-
     /**
      * 导入全局css
      * @type {*[]}
@@ -159,11 +176,12 @@ module.exports = {
      * 忽略开发工具的错误。
      */
     config.resolve.alias
-      .set('@public', resolve('public'))
-      .set('@core', resolve('src/core'))
-      .set('@', resolve('src/application'))
-      .set('@assets', resolve('src/application/assets'))
-      .set('@styl', resolve('src/application/assets/stylus/components'))
+      .set('@public', resolve(PublicConfig.alias.public))
+      .set('@core', resolve(PublicConfig.alias.core))
+      .set('@', resolve(PublicConfig.alias.root))
+      .set('@assets', resolve(PublicConfig.alias.assets))
+      .set('@styl', resolve(PublicConfig.alias.styl))
+      .set('@impl', resolve(PublicConfig.alias.impl))
   }
 
 };
@@ -177,7 +195,7 @@ function addStyleResource(rule) {
     .loader('style-resources-loader')
     .options({
       patterns: [
-        path.resolve(__dirname, './src/application/assets/stylus/imports.styl')
+        path.resolve(__dirname, PublicConfig.alias.globalStyl)
       ],
     });
 }
