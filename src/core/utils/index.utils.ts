@@ -1,10 +1,7 @@
 import { config } from '../config/index.config';
 import { GlobalMethod } from 'vue3decorators';
 /**
- * utils 类中，方法名如果加上 static 只是给脚手架内部做配置用于启动，
- * 是不能再vue 组件中使用的！！！
- * 不加修饰符 static 则可以在Vue组件中调用
- * 具体调用方式看：Home.vue组件
+ * utils 工具类
  */
 export class Utils {
   /**

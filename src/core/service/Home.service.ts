@@ -1,3 +1,4 @@
 export interface HomeService {
-  index(data: object): void;
+  index(data: object): Promise<any>;
+  HaHa(data: object): Promise<any>
 }
