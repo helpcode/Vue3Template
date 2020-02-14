@@ -1,6 +1,5 @@
 import { HomeService } from "../Home.service";
 import { GET, POST } from 'vue3decorators';
-import { config } from "../../config/index.config";
 
 class HomeServiceImpl implements HomeService {
 
