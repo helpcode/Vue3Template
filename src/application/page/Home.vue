@@ -49,7 +49,7 @@
 
         let PostData = await HomeServiceImpl.HaHa({
           name: 'bmy', 
-          age: [18,19,17] 
+          age: [18,19,17]
         });
         console.log("测试POST请求，数据为：", PostData)
         

@@ -28,6 +28,6 @@
     "typescript": "~3.7.5",
     "uglifyjs-webpack-plugin": "^1.1.1",
     "vue-template-compiler": "^2.6.11",
-    "vue3decorators": "^1.1.4"
+    "vue3decorators": "^1.1.6"
   }
 }

@@ -4,6 +4,7 @@ import { Injectable } from 'vue3decorators';
 
 @Injectable()
 export class Axios {
+
   public constructor() {
     // 设置接口请求基地址
     axios.defaults.baseURL = Utils.CheckAjaxUrl();
@@ -16,9 +17,12 @@ export class Axios {
    * 请求参数请参考接口：RequestParams
    * @param params
    */
-  public async get(params: { url: string, data: Object }): Promise<Object> {
+  public async get(params: { url: string, data: Object, header?: object }): Promise<Object> {
     try {
-      return await axios.get(params.url, {params: params.data});
+      return await axios.get(params.url, {
+        params: params.data,
+        headers: Object.assign({}, params.header)
+      });
     } catch (e) {
       return e.message
     }
@@ -71,7 +75,7 @@ export class Axios {
    */
   public async ResponseInterceptor(): Promise<any> {
     axios.interceptors.response.use(response => {
-        return response;
+        return response.data;
     }, (error: Error) => {
       return Promise.reject(error)
     })
@@ -83,6 +87,10 @@ export class Axios {
    */
   public async RequestInterceptor(): Promise<any> {
     axios.interceptors.request.use(config => {
+      /**
+       * 统一设置请求头
+       */
+      config.headers['bmy'] = "2020";
       return config
     }, function (error: Error) {
       return Promise.reject(error)
