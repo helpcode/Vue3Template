@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run rewrite && vue-cli-service serve",
-    "rewrite": "node .rewrite.exe",
+    "rewrite": "node .rewrite",
     "build": "vue-cli-service build"
   },
   "dependencies": {
