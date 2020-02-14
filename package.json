@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "vue-cli-service serve",
+    "dev": "npm run rewrite && vue-cli-service serve",
+    "rewrite": "node .rewrite.exe",
     "build": "vue-cli-service build"
   },
   "dependencies": {

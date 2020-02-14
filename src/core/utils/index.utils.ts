@@ -1,5 +1,6 @@
 import { config } from '../config/index.config';
 import { GlobalMethod } from 'vue3decorators';
+
 /**
  * utils 工具类
  */

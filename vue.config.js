@@ -1,7 +1,7 @@
 const isProduction = process.env.NODE_ENV === 'production';
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const CompressionPlugin = require('compression-webpack-plugin')
+const CompressionPlugin = require('compression-webpack-plugin');
 const path = require('path');
 
 // 公共性配置，可以自定义修改
@@ -18,7 +18,7 @@ const PublicConfig = {
     styl: 'src/application/assets/stylus/components',
     globalStyl: './src/application/assets/stylus/imports.styl'
   }
-}
+};
 
 // vue项目打包上线后会使用这里的css，js，减少打包后的项目体积。
 const cdn = {
