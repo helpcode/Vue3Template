@@ -1,7 +1,7 @@
 import App from '@/App.vue';
 import Vue, { VueConstructor , PluginObject} from 'vue';
 import VueRouter, { RawLocation, Route } from 'vue-router';
-import { Inject, directiveModel, mixinModel, globalMethodModel } from 'vue3decorators';
+import { Inject, directiveModel, mixinModel, globalMethodModel, StartBoot } from 'vue3decorators';
 
 /**
  * 这些类只需要被@Inject()实例化然后注入到属性即可
@@ -12,23 +12,23 @@ import { Axios } from '../dao/index.dao';
 import { DirectiveList } from '../directive/index.directive';
 import { MixinList } from '../mixin/index.mixin';
 
-
-/**
+/** 
  * 项目初始化文件
  */
+@StartBoot()
 export class Init {
 
   @Inject()
-  private config!: config;
+  private readonly config!: config;
 
   @Inject()
-  public directiveList!: DirectiveList;
+  public readonly directiveList!: DirectiveList;
 
   @Inject()
-  public mixinList!: MixinList;
+  public readonly mixinList!: MixinList;
 
   @Inject()
-  public axios!: Axios;
+  public readonly axios!: Axios;
   
   private initVuePlugsArray = config.VuePlugs;
   protected router!: VueRouter;

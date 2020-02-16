@@ -48,9 +48,9 @@
         // ctx.root.$router.push('about')
 
         let PostData = await HomeServiceImpl.HaHa({
-          name: 'bmy', 
+          name: 'bmy',
           age: [18,19,17]
-        });
+        },{id:1});
         console.log("测试POST请求，数据为：", PostData)
         
       });

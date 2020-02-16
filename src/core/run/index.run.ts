@@ -1,5 +1,5 @@
 import { Init } from './init.run';
-import { config } from '../config/index.config';
+// import { config } from '../config/index.config';
 import { CreateElement } from 'vue';
 /**
  * Vue项目的启动文件
@@ -11,7 +11,7 @@ class Index extends Init {
     new this.Vues({
       router: this.router,
       render: (h: CreateElement) => h(Init.AppComponent)
-    }).$mount(config.mountElement);
+    }).$mount('#app');
   }
 }
 

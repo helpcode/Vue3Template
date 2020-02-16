@@ -10,6 +10,7 @@ import { Directive, Injectable } from 'vue3decorators';
  */
 @Injectable()
 export class DirectiveList {
+
     @Directive()
     public index() {
         return {
@@ -21,6 +22,7 @@ export class DirectiveList {
             }
         }
     }
+
     @Directive()
     public test() {
         return {

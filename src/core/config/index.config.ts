@@ -11,7 +11,9 @@ export class config {
    * 接口配置: 测试环境基地址，正式环境基地址，具体页面接口
    */
   public static AjaxConfig: {
-    [ key: string ]: any
+    DevUrl: string,
+    ProdUrl: string,
+    ApiList: { [key: string]: string}
   } = {
     DevUrl: 'http://localhost:9000',
     ProdUrl: 'http://127.0.0.1:3000',
