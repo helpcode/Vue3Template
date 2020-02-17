@@ -1,4 +1,4 @@
 export interface HomeService {
-  index(data: object, header: object): Promise<any>;
-  HaHa(data: object): Promise<any>;
+  index(data: object): Promise<any>;
+  haha(data: object): Promise<any>;
 }

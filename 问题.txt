@@ -10,4 +10,10 @@
 
 【实现】3: 非Vue插件也使用注解
 
-【未实现】4：简化init.run.ts注入运行类过程
+【未实现/放弃】4：简化init.run.ts注入运行类过程
+
+  状态：尝试过了，不行，已放弃....
+
+【未实现】5：控制台启动Banner和vue-cli-plugin-autorouter合并到一起，作为一个插件包。
+
+【实现】6：简化 @GET，@POST等注解，去除参数，用方法名作为ApiList的Key。

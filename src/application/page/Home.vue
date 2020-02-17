@@ -47,10 +47,10 @@
         // 路由导航
         // ctx.root.$router.push('about')
 
-        let PostData = await HomeServiceImpl.HaHa({
+        let PostData = await HomeServiceImpl.haha({
           name: 'bmy',
           age: [18,19,17]
-        },{id:1});
+        });
         console.log("测试POST请求，数据为：", PostData)
         
       });
