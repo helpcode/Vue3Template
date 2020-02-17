@@ -4,35 +4,28 @@
 
 export const AutoRoutesConfig = [
   {
-    name: "About",
-    path: "/About",
-    component: () => import(/* webpackChunkName: '[request]' */ '@/page/About.vue'),
-    meta: {}
-  },
-  {
-    name: "user",
     path: "/user",
     component: () => import(/* webpackChunkName: '[request]' */ '@/page/user.vue'),
     meta: {},
     children: [
       {
-        name: "user-login",
-        path: "login",
-        component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/login.vue'),
+        name: "user",
+        path: "",
+        component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/index.vue'),
         meta: {}
       },
       {
         name: "user-id",
-        path: ":id?",
+        path: ":id",
         component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/_id.vue'),
         meta: {}
       }
     ]
   },
   {
-    name: "Home",
+    name: "index",
     path: "/",
-    component: () => import(/* webpackChunkName: '[request]' */ '@/page/Home.vue'),
+    component: () => import(/* webpackChunkName: '[request]' */ '@/page/index.vue'),
     meta: {}
   }
 ];
