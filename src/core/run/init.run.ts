@@ -3,10 +3,6 @@ import Vue, { VueConstructor , PluginObject} from 'vue';
 import VueRouter, { RawLocation, Route } from 'vue-router';
 import { Inject, directiveModel, mixinModel, globalMethodModel, StartBoot } from 'vue3decorators';
 
-/**
- * 这些类只需要被@Inject()实例化然后注入到属性即可
- * 为了让注解生效
- */
 import { config } from '../config/index.config'
 import { Axios } from '../dao/index.dao';
 import { DirectiveList } from '../directive/index.directive';
