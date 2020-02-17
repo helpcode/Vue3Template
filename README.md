@@ -50,13 +50,19 @@ npm run build
         └── utils                   公共方法
 ```
 
-## 3：已实现的注解
+## 3：注解包
 
 这里不做篇幅介绍了，已实现的注解被抽离出去作为了一个单独的`npm`包，可以使用`npm`进行安装然后使用，具体注解用法看下面链接：
 
 > vue3decorators 项目地址：[https://www.npmjs.com/package/vue3decorators](https://www.npmjs.com/package/vue3decorators)
 
-## 7：项目运行思路
+## 4：自动生成路由配置
+
+借鉴 [Nuxt.js](https://zh.nuxtjs.org/) 的路由源码实现，可以根据存放Vue-Router页面的文件夹结构自动生成Vue-Router配置文件。
+
+> 插件包地址：[https://www.npmjs.com/package/vue-cli-plugin-autorouter](https://www.npmjs.com/package/vue-cli-plugin-autorouter)
+
+## 4：项目运行思路
 
 - 1: `vue.config.js` 中 `config.entry.app = './src/core/run/index.ts';` 设置了程序的入口文件，程序从这启动！
 - 2: `class Index` 继承 父类 `Init`, 这里 `index.ts` 只负责做初始化`Vue`的工作，所有的Vue参数插件等具体装载都在`init.ts`中
@@ -67,6 +73,6 @@ npm run build
 
 **对了，记得看`src/application/page/Home.vue`里面的代码，还就是配置文件: `vue.config.js`也记得看下！**
 
-## 4：后记
+## 5：后记
 
 ## 后面考虑会写一个Vue3的学习文档，这样方便大家快速掌握！

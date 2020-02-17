@@ -24,7 +24,7 @@ export class Axios {
         headers: Object.assign({}, params.header)
       });
     } catch (e) {
-      return e.message
+       throw new Error(`GET 请求出错：${e.message}`)
     }
   }
 
@@ -39,7 +39,7 @@ export class Axios {
         headers: Object.assign({}, params.header)
       })
     } catch (e) {
-      return e.message
+      throw new Error(`POST 请求出错：${e.message}`)
     }
   }
 
@@ -52,7 +52,7 @@ export class Axios {
     try {
       return await axios.put(params.url, params.data)
     } catch (e) {
-      return e.message
+      throw new Error(`PUT 请求出错：${e.message}`)
     }
   }
 
@@ -65,7 +65,7 @@ export class Axios {
     try {
       return await axios.delete(params.url, {params: params.data})
     } catch (e) {
-      return e.message
+      throw new Error(`DELETE 请求出错：${e.message}`)
     }
   }
 

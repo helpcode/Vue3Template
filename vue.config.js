@@ -36,6 +36,11 @@ module.exports = {
   productionSourceMap: false,
   parallel: require('os').cpus().length > 1,
   lintOnSave: false,
+  pluginOptions: {
+    route: {
+      param: '传参数给內建插件'
+    }
+  },
   devServer: {
     hot: true,
     hotOnly: true,

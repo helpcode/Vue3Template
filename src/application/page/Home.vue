@@ -4,14 +4,14 @@
     h2(v-index='200') {{title}}
     p(v-test) 请打开控制台查看更多
     v-hellowold(title="父向子传递数据")
-    button(@click='loadData') 点击请求数据
+    Button(@click='loadData' type="primary") 点击请求数据
     ul
       li(v-for="(item,index) in list" :key="index") 
         p {{ item.id }} : {{ item.name }}
 </template>
 
 <script lang="ts">
-
+  import { Button } from 'vant';
   import { toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
   //@ts-ignore
@@ -67,7 +67,8 @@
       }
     },
     components: {
-      'v-hellowold': HelloWorldComponent
+      'v-hellowold': HelloWorldComponent,
+        Button
     },
   })
 </script>
