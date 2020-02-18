@@ -5,7 +5,7 @@ node_modules
 .env.local
 .env.*.local
 
-memo.txt
+./memo.txt
 
 # Log files
 npm-debug.log*
