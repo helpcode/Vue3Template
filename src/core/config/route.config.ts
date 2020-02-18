@@ -4,6 +4,12 @@
 
 export const AutoRoutesConfig = [
   {
+    name: "about",
+    path: "/about",
+    component: () => import(/* webpackChunkName: '[request]' */ '@/page/about.vue'),
+    meta: {}
+  },
+  {
     path: "/user",
     component: () => import(/* webpackChunkName: '[request]' */ '@/page/user.vue'),
     meta: {},

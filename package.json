@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npm run route && vue-cli-service serve",
+    "dev": "concurrently \"npm run route && vue-cli-service serve\"  \"gulp\" ",
     "build": "vue-cli-service build",
     "route": "vue-cli-service route"
   },
@@ -20,8 +20,10 @@
     "@vue/cli-service": "^4.2.0",
     "babel-plugin-import": "^1.13.0",
     "compression-webpack-plugin": "^3.1.0",
+    "concurrently": "^5.1.0",
     "core-js": "^3.6.4",
     "glob": "^7.1.3",
+    "gulp": "^4.0.2",
     "pify": "^4.0.1",
     "pug-html-loader": "^1.1.5",
     "pug-plain-loader": "^1.0.0",
@@ -33,6 +35,6 @@
     "uglifyjs-webpack-plugin": "^1.1.1",
     "vue-cli-plugin-autorouter": "^1.2.3",
     "vue-template-compiler": "^2.6.11",
-    "vue3decorators": "^1.1.9"
+    "vue3decorators": "^1.2.3"
   }
 }

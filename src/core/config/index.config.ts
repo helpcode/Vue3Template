@@ -30,7 +30,8 @@ export class config {
     ProdUrl: 'http://127.0.0.1:3000',
     ApiList: {
       index: '/test',
-      haha: '/haha'
+      haha: '/haha',
+      Login: '/user-login'
     },
   };
 

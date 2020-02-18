@@ -18,17 +18,6 @@ export class Utils {
   }
 
   /**
-   * 异步加载组件，仅限 pages 中组件
-   * @param fileName 组件的文件名称
-   * @constructor
-   */
-  public static AsyncComponentHook(fileName: String): Function {
-    const component = import(/* webpackChunkName: "[request]" */ `@/page/${fileName}.vue`);
-    component.catch((e: Error) => console.error(`组件加载失败: ${e}`));
-    return () => component;
-  }
-
-  /**
    * 动态设置网页title
    * @param title
    */

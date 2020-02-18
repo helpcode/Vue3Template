@@ -21,6 +21,7 @@
   import HelloWorldComponent from '../components/HelloWorld.vue'
 
   export default createComponent({
+    name: 'index',
     props: {},
     setup(props: PropOptions, ctx: SetupContext) {
       const { route, router } = useRouter();

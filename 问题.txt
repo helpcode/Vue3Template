@@ -17,7 +17,7 @@
 
 【实现】6：简化 @GET，@POST等注解，去除参数，用方法名作为ApiList的Key。
 
-【未实现】7：每次添加新的组件时，都需要手动执行命令 vue-cli-service route 进而重新生成路由配置文件，对懒人而言，太TM麻烦了！！
+【实现】7：每次添加新的组件时，都需要手动执行命令 vue-cli-service route 进而重新生成路由配置文件，对懒人而言，太TM麻烦了！！
 
         解决思路：
 
@@ -30,3 +30,5 @@
         问题：如果要能在其他Vue项目上也被使用，那么现在的插件包就不能基于 vue-cli-service，因为Vue cli 2.x 或者其他手配的
              Vue项目没有，vue-cli-service。
              所以需要脱离vue-cli-service作为一个单独的 nodejs 包，才可以实现所有Vue项目全部通用。
+
+【实现】9：cli脚手架一键创建项目
