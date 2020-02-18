@@ -15,7 +15,7 @@
                 title: Ref<string>
             }> = reactive({
                 title: ref('用户中心')
-            })
+            });
 
             return {
                 ...toRefs(state)

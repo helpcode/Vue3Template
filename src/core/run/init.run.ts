@@ -8,10 +8,10 @@ import { Axios } from '../dao/index.dao';
 import { DirectiveList } from '../directive/index.directive';
 import { MixinList } from '../mixin/index.mixin';
 
-/** 
+/**
  * 项目初始化文件
  */
-@StartBoot()
+@StartBoot(false)
 export class Init {
 
   @Inject()
@@ -40,9 +40,9 @@ export class Init {
    * 初始化Vue和非Vue插件，Vue Mixin，vue directive
    */
   private initPlugs(): void {
-    (directiveModel.DirectiveContainer as []).forEach(v => this.Vues.directive(v['n'], v['f']));
-    (mixinModel.MixinContainer as []).forEach(v => this.Vues.mixin(v));
-    (globalMethodModel.GlobalMethod as []).forEach(v => this.Vues.prototype[v['n']] = v['f']);
+    globalMethodModel.GlobalMethod.forEach(v => this.Vues.prototype[v['n']] = v['f']);
+    directiveModel.DirectiveContainer.forEach(v => this.Vues.directive(v['n'], v['f']));
+    mixinModel.MixinContainer.forEach(v => this.Vues.mixin(v));
     this.initVuePlugsArray.forEach(v => this.Vues.use(v));
     this.InitVueRouter();
   }

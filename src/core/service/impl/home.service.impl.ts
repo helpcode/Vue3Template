@@ -1,8 +1,7 @@
 import { HomeService } from "../Home.service";
-import { GET, POST, GlobalMethod, PUT } from 'vue3decorators';
+import { GET, POST, PUT } from 'vue3decorators';
 
-class HomeServiceImpl implements HomeService {
-
+export class HomeServiceImpl implements HomeService {
     /**
      * @GET 被打上这些注解的Service可以在Vue组件中使用。
      * 1: 方法内部不需要任何的处理逻辑，留空即可。
@@ -33,8 +32,6 @@ class HomeServiceImpl implements HomeService {
 
     @PUT()
     public async Login(data: object): Promise<any> {}
-
-
 }
 
 export default new HomeServiceImpl();

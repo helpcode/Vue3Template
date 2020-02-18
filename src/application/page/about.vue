@@ -1,6 +1,8 @@
 <template lang="pug">
   .about
-    h1 {{ title }}
+    h1(@click="addCount") {{ title }}
+    p {{count}}
+    p Test: {{ Test }}
 </template>
 
 <script lang="ts">
@@ -11,13 +13,27 @@
     props: {},
     setup(props: PropOptions, ctx: SetupContext) {
       const state: UnwrapRef<{
-        title: Ref<string>
+        title: Ref<string>,
+        count: Ref<number>
       }> = reactive({
-        title: ref('关于我页面')
-      })
+        title: ref('关于我页面'),
+        count: ref(0)
+      });
+
+      const Test: Ref<string> = ref('张三');
+
+      const addCount = () => {
+        state.count+=1
+      };
+
+      onMounted(async () => {
+          console.log("Test: ",Test.value)
+      });
 
       return {
-        ...toRefs(state)
+        ...toRefs(state),
+          Test,
+        addCount
       }
     }
   })

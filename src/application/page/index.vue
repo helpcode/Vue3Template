@@ -1,7 +1,7 @@
 <template lang="pug">
   .home
     img(alt='Vue logo', src='~@public/img/logo.png')
-    h2(v-index='200') {{title}}
+    h2(v-index='200') {{title | gets}}
     p(v-test) 请打开控制台查看更多
     v-hellowold(title="父向子传递数据")
     Button(@click='loadData' type="primary") 点击请求数据
@@ -20,9 +20,15 @@
   import HomeServiceImpl from "@impl/home.service.impl";
   import HelloWorldComponent from '../components/HelloWorld.vue'
 
+
   export default createComponent({
     name: 'index',
     props: {},
+    filters: {
+        gets: (value: string) => {
+            return value + ' | 过滤器';
+        }
+    },
     setup(props: PropOptions, ctx: SetupContext) {
       const { route, router } = useRouter();
 
@@ -45,6 +51,9 @@
         // 2: 使用vue3 SetupContext 对象访问全局自定义配置和方法
         // 还有路由对象
         (ctx.root as any).$setTitle("测试")
+
+        console.log()
+
         // 路由导航
         // ctx.root.$router.push('about')
 
@@ -57,7 +66,8 @@
       });
 
       const loadData = async () => {
-        // ajax 请求，可以使用Hooks，也可以用传统的 prototype 全局挂载方式（注意用ctx替代this）
+
+        // ajax 请求，注意用ctx替代this
         let data = await HomeServiceImpl.index({ id: 1,page: 1 });
         console.log("GET请求到的数据：", data)
         state.list = data.result

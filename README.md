@@ -73,6 +73,5 @@ npm run build
 
 **对了，记得看`src/application/page/Home.vue`里面的代码，还就是配置文件: `vue.config.js`也记得看下！**
 
-## 5：后记
+## 5：Vue3.0 学习文档
 
-## 后面考虑会写一个Vue3的学习文档，这样方便大家快速掌握！
