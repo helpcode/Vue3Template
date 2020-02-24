@@ -39,6 +39,6 @@
   })
 </script>
 
-<style lang="stylus" scoped>
- @import "~@styl/about";
+<style lang="less" scoped>
+ @import "~@less/about";
 </style>

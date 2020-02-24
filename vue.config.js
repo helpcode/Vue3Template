@@ -15,8 +15,8 @@ const PublicConfig = {
     impl: 'src/core/service/impl',
     root: 'src/application',
     assets: 'src/application/assets',
-    styl: 'src/application/assets/stylus/components',
-    globalStyl: './src/application/assets/stylus/imports.styl'
+    less: 'src/application/assets/stylus/components',
+    globalStyl: './src/application/assets/stylus/imports.less'
   }
 };
 
@@ -172,7 +172,7 @@ module.exports = {
      * @type {*[]}
      */
     const types = ['vue-modules', 'vue', 'normal-modules', 'normal'];
-    types.forEach(type => addStyleResource(config.module.rule('stylus').oneOf(type)));
+    types.forEach(type => addStyleResource(config.module.rule('less').oneOf(type)));
 
 
     /**
@@ -185,7 +185,7 @@ module.exports = {
       .set('@core', resolve(PublicConfig.alias.core))
       .set('@', resolve(PublicConfig.alias.root))
       .set('@assets', resolve(PublicConfig.alias.assets))
-      .set('@styl', resolve(PublicConfig.alias.styl))
+      .set('@less', resolve(PublicConfig.alias.less))
       .set('@impl', resolve(PublicConfig.alias.impl))
   }
 

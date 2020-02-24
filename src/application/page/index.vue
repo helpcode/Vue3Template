@@ -84,6 +84,6 @@
   })
 </script>
 
-<style lang="stylus" scoped>
- @import "~@styl/home";
+<style lang="less" scoped>
+ @import "~@less/home";
 </style>
