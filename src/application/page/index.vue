@@ -12,7 +12,7 @@
 
 <script lang="ts">
   import { Button } from 'vant';
-  import { toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
+  import { computed,toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
   //@ts-ignore
   import { useRouter } from '@core/hooks/router.hooks'

@@ -23,8 +23,8 @@ export class config {
    */
   public static AjaxConfig: {
     DevUrl: string,
-    ProdUrl: string,
-    ApiList: { [key: string]: string}
+    ProdUrl: string, 
+    ApiList: { [ key: string ]: string}
   } = {
     DevUrl: 'http://localhost:9000',
     ProdUrl: 'http://127.0.0.1:3000',

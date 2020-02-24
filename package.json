@@ -3,7 +3,8 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "concurrently \"npm run route && vue-cli-service serve\"  \"gulp\" ",
+    "dev": "concurrently \"npm run route && npm run serve\"  \"gulp\" ",
+    "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "route": "vue-cli-service route"
   },
