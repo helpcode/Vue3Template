@@ -1,3 +1,9 @@
+<route-meta>
+  {
+    "isLogin": false,
+    "title": "用户中心首页"
+  }
+</route-meta>
 <template lang="pug">
   .user-info
     h1 {{ title }}

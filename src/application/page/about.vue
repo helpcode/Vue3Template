@@ -1,3 +1,9 @@
+<route-meta>
+  {
+    "isLogin": false,
+    "title": "关于我"
+  }
+</route-meta>
 <template lang="pug">
   .about
     h1(@click="addCount") {{ title }}
@@ -10,6 +16,7 @@
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
 
   export default createComponent({
+    name: '',
     props: {},
     setup(props: PropOptions, ctx: SetupContext) {
       const state: UnwrapRef<{

@@ -1,3 +1,9 @@
+<route-meta>
+  {
+    "isLogin": false,
+    "title": "用户列表"
+  }
+</route-meta>
 <template lang="pug">
   .user-list
     h1 {{ title }}

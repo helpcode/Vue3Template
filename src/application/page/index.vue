@@ -1,3 +1,9 @@
+<route-meta>
+  {
+    "isLogin": false,
+    "title": "首页"
+  }
+</route-meta>
 <template lang="pug">
   .home
     img(alt='Vue logo', src='~@public/img/logo.png')
