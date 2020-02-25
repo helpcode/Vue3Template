@@ -16,7 +16,6 @@
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
 
   export default createComponent({
-    name: '',
     props: {},
     setup(props: PropOptions, ctx: SetupContext) {
       const state: UnwrapRef<{
