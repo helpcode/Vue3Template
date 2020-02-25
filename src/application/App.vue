@@ -10,9 +10,7 @@
   import { toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
 
   export default createComponent({
-    setup() {
-      
-    }
+    setup() {}
   });
 </script>
 
