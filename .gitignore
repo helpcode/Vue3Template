@@ -6,6 +6,7 @@ node_modules
 .env.*.local
 
 ./memo.txt
+src/
 
 # Log files
 npm-debug.log*

@@ -7,24 +7,36 @@ export const AutoRoutesConfig = [
     name: "about",
     path: "/about",
     component: () => import(/* webpackChunkName: '[request]' */ '@/page/about.vue'),
-    meta: {}
+    meta: {
+      isLogin: false,
+      title: "关于我"
+    }
   },
   {
     path: "/user",
     component: () => import(/* webpackChunkName: '[request]' */ '@/page/user.vue'),
-    meta: {},
+    meta: {
+      isLogin: false,
+      title: "用户列表"
+    },
     children: [
       {
         name: "user",
         path: "",
         component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/index.vue'),
-        meta: {}
+        meta: {
+          isLogin: false,
+          title: "用户中心首页"
+        }
       },
       {
         name: "user-id",
         path: ":id",
         component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/_id.vue'),
-        meta: {}
+        meta: {
+          isLogin: false,
+          title: "用户详情页面"
+        }
       }
     ]
   },
@@ -32,6 +44,9 @@ export const AutoRoutesConfig = [
     name: "index",
     path: "/",
     component: () => import(/* webpackChunkName: '[request]' */ '@/page/index.vue'),
-    meta: {}
+    meta: {
+      isLogin: false,
+      title: "首页"
+    }
   }
 ];
