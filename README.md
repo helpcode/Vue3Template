@@ -62,7 +62,13 @@ npm run build
 
 > 插件包地址：[https://www.npmjs.com/package/vue-cli-plugin-autorouter](https://www.npmjs.com/package/vue-cli-plugin-autorouter)
 
-## 4：项目运行思路
+## 5：tsvue3-cli 脚手架
+
+一键创建 `Vue3Template`项目，更加快速的享受编码的乐趣。
+
+> 插件包地址：[https://www.npmjs.com/package/tsvue3-cli](https://www.npmjs.com/package/tsvue3-cli)
+
+## 6：项目运行思路
 
 - 1: `vue.config.js` 中 `config.entry.app = './src/core/run/index.ts';` 设置了程序的入口文件，程序从这启动！
 - 2: `class Index` 继承 父类 `Init`, 这里 `index.ts` 只负责做初始化`Vue`的工作，所有的Vue参数插件等具体装载都在`init.ts`中
@@ -73,5 +79,4 @@ npm run build
 
 **对了，记得看`src/application/page/Home.vue`里面的代码，还就是配置文件: `vue.config.js`也记得看下！**
 
-## 5：Vue3.0 学习文档
 
