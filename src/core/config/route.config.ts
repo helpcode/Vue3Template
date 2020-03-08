@@ -6,7 +6,7 @@ export const AutoRoutesConfig = [
   {
     name: "about",
     path: "/about",
-    component: () => import(/* webpackChunkName: '[request]' */ '@/page/about.vue'),
+    component: () => import(/* webpackChunkName: 'about' */ '@/page/about.vue'),
     meta: {
       isLogin: false,
       title: "关于我"
@@ -14,7 +14,7 @@ export const AutoRoutesConfig = [
   },
   {
     path: "/user",
-    component: () => import(/* webpackChunkName: '[request]' */ '@/page/user.vue'),
+    component: () => import(/* webpackChunkName: 'user' */ '@/page/user.vue'),
     meta: {
       isLogin: false,
       title: "用户列表"
@@ -23,7 +23,7 @@ export const AutoRoutesConfig = [
       {
         name: "user",
         path: "",
-        component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/index.vue'),
+        component: () => import(/* webpackChunkName: 'user,index' */ '@/page/user/index.vue'),
         meta: {
           isLogin: false,
           title: "用户中心首页"
@@ -32,7 +32,7 @@ export const AutoRoutesConfig = [
       {
         name: "user-id",
         path: ":id",
-        component: () => import(/* webpackChunkName: '[request]' */ '@/page/user/_id.vue'),
+        component: () => import(/* webpackChunkName: 'user,_id' */ '@/page/user/_id.vue'),
         meta: {
           isLogin: false,
           title: "用户详情页面"
@@ -43,7 +43,7 @@ export const AutoRoutesConfig = [
   {
     name: "index",
     path: "/",
-    component: () => import(/* webpackChunkName: '[request]' */ '@/page/index.vue'),
+    component: () => import(/* webpackChunkName: 'index' */ '@/page/index.vue'),
     meta: {
       isLogin: false,
       title: "首页"

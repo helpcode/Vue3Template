@@ -8,6 +8,7 @@
 
 <script lang="ts">
   import { toRefs, Ref, ref, reactive, createComponent, provide, onMounted, SetupContext } from '@vue/composition-api';
+  //@ts-ignore
   import { HelpingPopupBroadcastChannel } from '@core/hooks/BroadcastChannel.hooks';
 
   export default createComponent({

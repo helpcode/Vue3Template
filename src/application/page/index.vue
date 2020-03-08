@@ -22,6 +22,7 @@
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
   //@ts-ignore
   import { useRouter } from '@core/hooks/router.hooks'
+  //@ts-ignore
   import HomeServiceImpl from '@impl/home.service.impl';
   import HelloWorldComponent from '../components/HelloWorld.vue'
 
