@@ -18,12 +18,11 @@
 
 <script lang="ts">
   import { Button } from 'vant';
-  import { computed,toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
+  import { inject, computed,toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
   //@ts-ignore
   import { useRouter } from '@core/hooks/router.hooks'
-  //@ts-ignore
-  import HomeServiceImpl from "@impl/home.service.impl";
+  import HomeServiceImpl from '@impl/home.service.impl';
   import HelloWorldComponent from '../components/HelloWorld.vue'
 
 
@@ -38,6 +37,10 @@
     setup(props: PropOptions, ctx: SetupContext) {
       const { route, router } = useRouter();
 
+      // 从App.vue 拿到被注入的 Broadcast 广播对象
+      const Broadcast = inject("Broadcast");
+      console.log("Broadcast: ", Broadcast)
+
       const state: UnwrapRef<{
         title: Ref<string>,
         list: Ref<Array<{id: number, name: string}>>
@@ -47,6 +50,7 @@
       });
 
       onMounted(async ()=> {
+
         // 1: 使用 mixin 混入
         // 在beforeCreate时候保存vue对象，然后使用 hooks 读出来使用
         console.log("路由 route 对象: ", route.value);

@@ -7,10 +7,19 @@
 </template>
 
 <script lang="ts">
-  import { toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
+  import { toRefs, Ref, ref, reactive, createComponent, provide, onMounted, SetupContext } from '@vue/composition-api';
+  import { HelpingPopupBroadcastChannel } from '@core/hooks/BroadcastChannel.hooks';
 
   export default createComponent({
-    setup() {}
+    setup() {
+
+      // 向所有组件共享 广播，避免所有页面都导入文件
+      provide("Broadcast", HelpingPopupBroadcastChannel());
+
+      onMounted(() => {
+        console.log(HelpingPopupBroadcastChannel())
+      })
+    }
   });
 </script>
 
