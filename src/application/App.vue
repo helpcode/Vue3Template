@@ -19,7 +19,8 @@
 
       onMounted(() => {
         console.log(HelpingPopupBroadcastChannel())
-      })
+      });
+
     }
   });
 </script>
