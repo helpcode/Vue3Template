@@ -23,7 +23,7 @@ export const AutoRoutesConfig = [
       {
         name: "user",
         path: "",
-        component: () => import(/* webpackChunkName: 'user,index' */ '@/page/user/index.vue'),
+        component: () => import(/* webpackChunkName: 'userindex' */ '@/page/user/index.vue'),
         meta: {
           isLogin: false,
           title: "用户中心首页"
@@ -32,7 +32,7 @@ export const AutoRoutesConfig = [
       {
         name: "user-id",
         path: ":id",
-        component: () => import(/* webpackChunkName: 'user,_id' */ '@/page/user/_id.vue'),
+        component: () => import(/* webpackChunkName: 'user_id' */ '@/page/user/_id.vue'),
         meta: {
           isLogin: false,
           title: "用户详情页面"

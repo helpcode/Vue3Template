@@ -63,7 +63,6 @@
         // 还有路由对象
         (ctx.root as any).$setTitle("测试")
 
-        console.log()
 
         // 路由导航
         // ctx.root.$router.push('about')
@@ -80,7 +79,7 @@
 
         // ajax 请求，注意用ctx替代this
         let data = await HomeServiceImpl.index({ id: 1,page: 1 });
-        console.log("GET请求到的数据：", data)
+        console.log("GET请求到的数据：", data);
         state.list = data.result
       };
 
