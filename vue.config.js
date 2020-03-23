@@ -7,7 +7,7 @@ module.exports = {
   publicPath: './',
   filenameHashing: true,
   productionSourceMap: false,
-  parallel: require('os').cpus().length > 1,
+  parallel: true,
   lintOnSave: false,
   /**
    * vue-cli-plugin-autorouter 插件配置

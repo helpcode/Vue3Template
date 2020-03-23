@@ -27,6 +27,12 @@ class DevConfig {
       .loader('pug-html-loader')
       .end();
 
+    this.chainWebpack.module
+      .rule('images')
+      .use('url-loader')
+      .loader('url-loader')
+      .tap(options => Object.assign(options, { limit: 10240 }))
+
     /**
      * 导入全局css
      * @type {*[]}

@@ -6,14 +6,12 @@ import { UnwrapRef } from '@vue/composition-api/dist/reactivity';
  * 不支持IE，Safari 等浏览器，请注意兼容性
  * @constructor
  */
-export function HelpingPopupBroadcastChannel() {
+export function HelpingPopupMessageChannel() {
   const state: UnwrapRef<{
-    HelpingSuccess: BroadcastChannel
+    HelpingSuccess: MessageChannel
   }> = {
-    HelpingSuccess: new BroadcastChannel('HelpingSuccess')
+    HelpingSuccess: new MessageChannel()
   };
 
-  return {
-    ...toRefs(state)
-  }
-}
+  return state
+};

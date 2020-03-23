@@ -26,8 +26,6 @@
   //@ts-ignore
   import { SetupContext } from "@core/types/ctx.d.ts";
 
-
-
   export default createComponent({
     name: 'index',
     props: {},
@@ -37,9 +35,11 @@
         }
     },
     setup(props: PropOptions, ctx: SC | SetupContext) {
-      // 从App.vue 拿到被注入的 Broadcast 广播对象
-      const Broadcast = inject("Broadcast");
-      console.log("Broadcast: ", Broadcast);
+
+      const { port1, port2 } = (inject("Broadcast") as { [key: string]: { [key: string]: any } }).HelpingSuccess;
+      console.log("port1: ", port1);
+      console.log("port2: ", port2);
+
 
       const state: UnwrapRef<{
         title: Ref<string>,
@@ -53,14 +53,15 @@
 
         // 2: 使用vue3 SetupContext 对象访问全局自定义配置和方法
         // 还有路由对象
-        (ctx.root as any).$setTitle("测试");
+        ctx.root.$setTitle("测试");
 
         let PostData = await HomeServiceImpl.haha({
           name: 'bmy',
           age: [18,19,17]
         });
+
         console.log("测试POST请求，数据为：", PostData);
-        
+
       });
 
       const loadData = async () => {
