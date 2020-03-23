@@ -9,9 +9,15 @@ module.exports = {
   productionSourceMap: false,
   parallel: require('os').cpus().length > 1,
   lintOnSave: false,
+  /**
+   * vue-cli-plugin-autorouter 插件配置
+   * 参考文档：https://www.npmjs.com/package/vue-cli-plugin-autorouter
+   */
   pluginOptions: {
     route: {
-      param: '传参数给內建插件'
+      TemplateFolderName: 'page',
+      RootFolderName: './src/application',
+      SaveConfigPath: '../../../src/core/config/route.config.ts'
     }
   },
   devServer: {
