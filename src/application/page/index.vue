@@ -18,13 +18,14 @@
 
 <script lang="ts">
   import { Button } from 'vant';
-  import { inject, computed,toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext } from '@vue/composition-api'
+  import { inject, computed,toRefs, Ref, ref, reactive, createComponent, PropOptions, onMounted, SetupContext as SC } from '@vue/composition-api'
   import { UnwrapRef } from '@vue/composition-api/dist/reactivity'
-  //@ts-ignore
-  import { useRouter } from '@core/hooks/router.hooks'
   //@ts-ignore
   import HomeServiceImpl from '@impl/home.service.impl';
   import HelloWorldComponent from '../components/HelloWorld.vue'
+  //@ts-ignore
+  import { SetupContext } from "@core/types/ctx.d.ts";
+
 
 
   export default createComponent({
@@ -35,12 +36,10 @@
             return value + ' | 过滤器';
         }
     },
-    setup(props: PropOptions, ctx: SetupContext) {
-      const { route, router } = useRouter();
-
+    setup(props: PropOptions, ctx: SC | SetupContext) {
       // 从App.vue 拿到被注入的 Broadcast 广播对象
       const Broadcast = inject("Broadcast");
-      console.log("Broadcast: ", Broadcast)
+      console.log("Broadcast: ", Broadcast);
 
       const state: UnwrapRef<{
         title: Ref<string>,
@@ -52,26 +51,15 @@
 
       onMounted(async ()=> {
 
-        // 1: 使用 mixin 混入
-        // 在beforeCreate时候保存vue对象，然后使用 hooks 读出来使用
-        console.log("路由 route 对象: ", route.value);
-        // 路由导航
-        // router.push('about')
-       
-
         // 2: 使用vue3 SetupContext 对象访问全局自定义配置和方法
         // 还有路由对象
-        (ctx.root as any).$setTitle("测试")
-
-
-        // 路由导航
-        // ctx.root.$router.push('about')
+        (ctx.root as any).$setTitle("测试");
 
         let PostData = await HomeServiceImpl.haha({
           name: 'bmy',
           age: [18,19,17]
         });
-        console.log("测试POST请求，数据为：", PostData)
+        console.log("测试POST请求，数据为：", PostData);
         
       });
 

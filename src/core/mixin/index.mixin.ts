@@ -1,4 +1,3 @@
-import { setRuntimeVM } from '../utils/runtime.utils';
 import { Mixin, Injectable } from 'vue3decorators';
 
 /**
@@ -7,11 +6,5 @@ import { Mixin, Injectable } from 'vue3decorators';
  */
 @Injectable()
 export class MixinList {
-    
-    @Mixin()
-    public Router() {
-        return {
-            beforeCreate: setRuntimeVM
-        }
-    }
+
 }

@@ -1,0 +1,4 @@
+#!/usr/bin/env node
+require('compressing').zip.compressDir('dist/', 'dist.zip')
+  .then(() => console.log('zip Success'))
+  .catch(err => console.error(err));

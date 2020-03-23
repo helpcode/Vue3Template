@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "concurrently \"npm run route && npm run serve\"  \"gulp\" ",
     "serve": "NODE_ENV=dev vue-cli-service serve",
-    "build": "NODE_ENV=production vue-cli-service build",
+    "build": "NODE_ENV=production vue-cli-service build && node ./build/zip",
     "route": "vue-cli-service route"
   },
   "dependencies": {
@@ -22,6 +22,7 @@
     "@vue/cli-plugin-typescript": "^4.2.0",
     "@vue/cli-service": "^4.2.0",
     "babel-plugin-import": "^1.13.0",
+    "compressing": "^1.5.0",
     "compression-webpack-plugin": "^3.1.0",
     "concurrently": "^5.1.0",
     "core-js": "^3.6.4",
