@@ -73,12 +73,13 @@
       };
 
       return {
-        ...toRefs(state), loadData
+        ...toRefs(state), 
+        loadData
       }
     },
     components: {
       'v-hellowold': HelloWorldComponent,
-        Button
+      Button
     },
   })
 </script>

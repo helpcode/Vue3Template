@@ -1,0 +1,16 @@
+@vm_fontsize: 75;
+@vm_design: 750;
+
+.rem(@px) {
+  @result: (@px / @vm_fontsize ) * 1rem;
+}
+
+html {
+  font-size: (@vm_fontsize / (@vm_design / 2) ) * 100vw;
+  @media screen and (max-width: 320px) {
+    font-size: 64px;
+  }
+  @media screen and (min-width: 540px) {
+    font-size: 108px;
+  }
+}

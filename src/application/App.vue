@@ -13,16 +13,16 @@
 
   export default createComponent({
     setup() {
-
       // 向所有组件共享 广播，避免所有页面都导入文件
       provide("Broadcast", HelpingPopupMessageChannel());
 
-      onMounted(() => {
-      });
+      onMounted(() => {});
 
     }
   });
 </script>
 
 <style lang="less">
+  /* 导入全局css样式 */
+  @import "~@assets/less/common/normalize";
 </style>

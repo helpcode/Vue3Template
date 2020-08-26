@@ -6,7 +6,6 @@ import { Injectable } from 'vue3decorators';
 
 import Vant from 'vant';
 import 'vant/lib/index.css';
-import 'amfe-flexible/index.js';
 
 @Injectable()
 export class config {
@@ -24,7 +23,8 @@ export class config {
     ApiList: {
       index: '/test',
       haha: '/haha',
-      Login: '/user-login'
+      Login: '/user-login',
+      about: '/about'
     },
   };
 
@@ -43,7 +43,8 @@ export class config {
   ];
 
   public static RouterConfigUrl: RouterOptions = {
-    mode: 'hash',
+    mode: 'history',
+    base: '/queen/',
     routes: AutoRoutesConfig
   }
 }

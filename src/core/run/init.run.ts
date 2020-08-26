@@ -11,7 +11,7 @@ import { MixinList } from '../mixin/index.mixin';
 /**
  * 项目初始化文件
  */
-@StartBoot(false)
+@StartBoot()
 export class Init {
 
   @Inject()

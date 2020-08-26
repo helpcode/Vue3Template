@@ -27,6 +27,9 @@ export class HomeServiceImpl implements HomeService {
     @GET()
     public async index(data: object): Promise<any> {}
 
+    @GET()
+    public async about(data: object): Promise<any> {}
+
     @POST()
     public async haha(data: object): Promise<any> {}
 
