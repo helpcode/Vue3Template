@@ -44,7 +44,7 @@ export class config {
 
   public static RouterConfigUrl: RouterOptions = {
     mode: 'history',
-    base: '/queen/',
+    base: './',
     routes: AutoRoutesConfig
   }
 }
