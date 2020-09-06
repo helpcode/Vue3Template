@@ -26,6 +26,7 @@
   //@ts-ignore
   import { SetupContext } from "@core/types/ctx.d.ts";
 
+
   export default createComponent({
     name: 'index',
     props: {},
@@ -50,6 +51,9 @@
       });
 
       onMounted(async ()=> {
+
+        console.log("MD5加密： ",ctx.root.$md5("test"));
+        
 
         // 2: 使用vue3 SetupContext 对象访问全局自定义配置和方法
         // 还有路由对象

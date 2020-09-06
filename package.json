@@ -4,14 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "concurrently \"npm run route && npm run serve\"  \"gulp\" ",
-    "serve": "NODE_ENV=dev vue-cli-service serve",
-    "build": "NODE_ENV=production vue-cli-service build && node ./build/zip",
+    "serve": "cross-env NODE_ENV=dev vue-cli-service serve",
+    "build": "cross-env NODE_ENV=production vue-cli-service build && node ./build/zip",
     "route": "vue-cli-service route"
   },
   "dependencies": {
     "@vue/composition-api": "^0.3.4",
     "amfe-flexible": "^2.2.1",
     "axios": "^0.19.2",
+    "js-md5": "^0.7.3",
     "vant": "^2.5.0",
     "vue": "^2.6.11",
     "vue-router": "^3.1.5",

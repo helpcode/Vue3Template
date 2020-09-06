@@ -7,6 +7,8 @@ import { Injectable } from 'vue3decorators';
 import Vant from 'vant';
 import 'vant/lib/index.css';
 
+import md5 from 'js-md5';
+
 @Injectable()
 export class config {
 
@@ -41,6 +43,15 @@ export class config {
     VueRouter,
     VueCompositionApi
   ];
+
+  /**
+   * 第三方非vue插件
+   * n: 在vue中使用的名字，ctx.root.$md5()
+   * v: import导入的插件变量
+   */
+  public static NotVuePlugs: { n: string, f: ()=>void }[] = [
+    { n: '$md5', f: md5 }
+  ]
 
   public static RouterConfigUrl: RouterOptions = {
     mode: 'history',

@@ -41,6 +41,7 @@ export class Init {
    */
   private initPlugs(): void {
     globalMethodModel.GlobalMethod.forEach(v => this.Vues.prototype[v['n']] = v['f']);
+    config.NotVuePlugs.forEach(v => this.Vues.prototype[v['n']] = v['f']);
     directiveModel.DirectiveContainer.forEach(v => this.Vues.directive(v['n'], v['f']));
     mixinModel.MixinContainer.forEach(v => this.Vues.mixin(v));
     this.initVuePlugsArray.forEach(v => this.Vues.use(v));
